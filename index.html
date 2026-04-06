@@ -380,59 +380,30 @@
       }
     }
 
-    /* Age badge */
-    .age-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1a5bba 0%, #103b7a 100%);
-      box-shadow: 0 4px 15px rgba(16, 59, 122, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      margin-bottom: 24px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #fff;
-      animation: badgePulse 3s ease-in-out infinite;
+    /* Astronaut Portrait */
+    .astronaut-portrait {
       position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      animation: badgePulse 3s ease-in-out infinite;
     }
 
-    .age-badge::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
+    .astronaut-portrait .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 50%;
-      border: 2px solid rgba(26, 91, 186, 0.3);
-      animation: badgeRing 3s ease-in-out infinite;
+      box-shadow: 0 4px 25px rgba(16, 59, 122, 0.5),
+        0 0 60px rgba(26, 91, 186, 0.2);
+      border: 3px solid rgba(96, 165, 250, 0.3);
     }
+
+
 
     @keyframes badgePulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    @keyframes badgeRing {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.5;
-      }
-
-      50% {
-        transform: scale(1.15);
-        opacity: 0;
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
     }
 
     /* Pre-heading */
@@ -640,13 +611,14 @@
         transform: none !important;
       }
 
-      /* -- Age badge -- */
-      .age-badge {
-        width: 60px;
-        height: 60px;
-        font-size: 26px;
-        margin-bottom: 18px;
+      /* -- Astronaut portrait -- */
+      .astronaut-portrait {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 14px;
       }
+
+
 
       /* -- Typography — readable on small screens -- */
       .pre-heading {
@@ -832,7 +804,9 @@
 
   <!-- MAIN CONTENT -->
   <main class="content-wrapper">
-    <div class="age-badge fade-in">4</div>
+    <div class="astronaut-portrait fade-in">
+      <img src="astronaut-michael.png" alt="Michael the Astronaut" class="portrait-img" />
+    </div>
     <p class="pre-heading fade-in">You're Invited to a Cosmic Celebration</p>
     <h1 class="fade-in">
       Michael is Turning
