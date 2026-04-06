@@ -359,21 +359,21 @@
       text-align: center;
     }
 
-    @media (max-height: 850px) {
+    @media (max-height: 850px) and (min-width: 601px) {
       .content-wrapper {
         transform: scale(0.85);
         transform-origin: center;
       }
     }
 
-    @media (max-height: 650px) {
+    @media (max-height: 650px) and (min-width: 601px) {
       .content-wrapper {
         transform: scale(0.7);
         transform-origin: center;
       }
     }
 
-    @media (max-height: 500px) {
+    @media (max-height: 500px) and (min-width: 601px) {
       .content-wrapper {
         transform: scale(0.55);
         transform-origin: center;
@@ -477,11 +477,12 @@
     /* Subheading */
     .subheading {
       font-size: clamp(16px, 3vw, 22px);
-      font-weight: 300;
-      color: rgba(220, 230, 245, 0.7);
+      font-weight: 400;
+      color: rgba(220, 230, 245, 0.85);
       max-width: 460px;
       line-height: 1.6;
       margin: 8px auto 8px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     /* Event details */
@@ -497,20 +498,20 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 18px;
-      /* Holographic card aesthetic */
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0.03) 60%, rgba(130, 200, 255, 0.1) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-right-color: rgba(255, 255, 255, 0.05);
-      border-bottom-color: rgba(255, 255, 255, 0.05);
+      padding: 10px 20px;
+      /* Holographic card aesthetic — boosted visibility */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.06) 60%, rgba(130, 200, 255, 0.15) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-right-color: rgba(255, 255, 255, 0.10);
+      border-bottom-color: rgba(255, 255, 255, 0.10);
       border-radius: 100px;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 15px;
+      font-weight: 600;
       color: #ffffff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .detail-chip .icon {
@@ -584,13 +585,7 @@
       transform: translateX(3px) translateY(-3px);
     }
 
-    /* Footer note */
-    .footer-note {
-      margin-top: 40px;
-      font-size: 13px;
-      color: rgba(180, 170, 200, 0.35);
-      letter-spacing: 1px;
-    }
+    /* Footer note (reserved for future use) */
 
     /* ═══════════════════════════════════════
    FLOATING PARTICLES (ambient dust)
@@ -632,67 +627,115 @@
     }
 
     /* ═══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — MOBILE
    ═══════════════════════════════════════ */
     @media (max-width: 600px) {
+
+      /* -- Content layout -- */
       .content-wrapper {
-        padding: 60px 20px 40px;
+        padding: 50px 20px 40px;
+        justify-content: center;
+        min-height: 100vh;
+        z-index: 10;
+        transform: none !important;
       }
 
+      /* -- Age badge -- */
       .age-badge {
-        width: 64px;
-        height: 64px;
-        font-size: 28px;
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+        margin-bottom: 18px;
       }
 
+      /* -- Typography — readable on small screens -- */
       .pre-heading {
-        font-size: 12px;
+        font-size: 11px;
         letter-spacing: 3px;
+        margin-bottom: 10px;
       }
 
-      .cta-button {
-        padding: 16px 32px;
+      h1 {
+        font-size: 32px;
+        margin-bottom: 6px;
+      }
+
+      .heading-accent {
+        font-size: 40px;
+      }
+
+      .subheading {
         font-size: 15px;
+        line-height: 1.5;
+        margin: 6px auto 6px;
+        max-width: 320px;
+        color: rgba(220, 230, 245, 0.85);
       }
 
-      .planet-large {
-        width: 180px;
-        height: 180px;
-        bottom: -40px;
-        left: -60px;
-      }
-
-      .planet-small {
-        width: 35px;
-        height: 35px;
-        top: 10%;
-        right: 5%;
-      }
-
-      .moon {
-        width: 25px;
-        height: 25px;
-        top: 18%;
-        left: 8%;
-      }
-
+      /* -- Event details — stack vertically -- */
       .event-details {
-        gap: 8px 16px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin: 14px 0 20px;
       }
 
       .detail-chip {
         font-size: 13px;
-        padding: 6px 14px;
+        padding: 8px 18px;
+        width: fit-content;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
+
+      /* -- CTA button -- */
+      .cta-button {
+        padding: 16px 32px;
+        font-size: 15px;
+        letter-spacing: 1px;
+      }
+
+      /* -- PLANETS: hide ALL except Saturn -- */
+      .planet-moon,
+      .planet-mars,
+      .planet-earth,
+      .planet-venus,
+      .planet-jupiter {
+        display: none !important;
+      }
+
+      /* Saturn — small, subtle, bottom-left corner deco */
+      .planet-saturn {
+        width: 180px;
+        bottom: -30px;
+        left: -20px;
+        opacity: 0.5;
+        mix-blend-mode: normal;
+      }
+
+      /* Tone down nebulas on mobile */
+      .nebula { opacity: 0.06; }
     }
 
     @media (max-width: 380px) {
       h1 {
-        font-size: 32px;
+        font-size: 28px;
       }
 
       .heading-accent {
-        font-size: 38px;
+        font-size: 34px;
+      }
+
+      .subheading {
+        font-size: 14px;
+        max-width: 280px;
+      }
+
+      .cta-button {
+        padding: 14px 28px;
+        font-size: 14px;
       }
     }
 
@@ -1371,7 +1414,7 @@
        SUBTLE PARALLAX ON MOUSE MOVE
        ═══════════════════════════════════════ */
     (function () {
-      const planets = document.querySelectorAll('.planet');
+      const planets = document.querySelectorAll('.planet-img');
       const nebulae = document.querySelectorAll('.nebula');
 
       let mouseX = 0, mouseY = 0;
@@ -1411,7 +1454,7 @@
         const x = (e.gamma || 0) / 45; // -1 to 1
         const y = (e.beta || 0) / 45;
 
-        const planets = document.querySelectorAll('.planet');
+        const planets = document.querySelectorAll('.planet-img');
         planets.forEach((p, i) => {
           const depth = 3 + i * 2;
           p.style.transform = `translate(${x * depth}px, ${y * depth}px)`;

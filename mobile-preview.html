@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Preview — Michael's Birthday</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ccc;
+    }
+    .phone-frame {
+      width: 393px;
+      height: 852px;
+      border: 6px solid #333;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 2px #555;
+      position: relative;
+      background: #000;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 28px;
+      background: #222;
+      border-radius: 20px;
+      z-index: 10;
+    }
+    .phone-frame iframe {
+      width: 393px;
+      height: 852px;
+      border: none;
+    }
+    h2 {
+      position: absolute;
+      top: 20px;
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      color: #888;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📱 iPhone 14 Pro — Mobile Preview</h2>
+  <div class="phone-frame">
+    <iframe src="index.html"></iframe>
+  </div>
+</body>
+</html>
